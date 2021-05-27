@@ -1,4 +1,4 @@
-import {Injectable, EventEmitter } from '@angular/core';
+import {Injectable, EventEmitter} from '@angular/core';
 import {Recipe} from "../recipes/recipe.model";
 import {Ingredient} from "../shared/ingredient.model";
 import {ShoppingListService} from "./shopping-list.service";
@@ -7,7 +7,7 @@ import {ShoppingListService} from "./shopping-list.service";
   providedIn: 'root'
 })
 export class RecipeService {
-  constructor( private  slService: ShoppingListService) {
+  constructor(private slService: ShoppingListService) {
   }
 
   recipeSelected = new EventEmitter<Recipe>();
@@ -17,8 +17,8 @@ export class RecipeService {
       '/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3' +
       '.jpg?quality=90&resize=960,872',
       [
-        new Ingredient('meat',23),
-        new Ingredient('chechen',3),
+        new Ingredient('meat', 23),
+        new Ingredient('chechen', 3),
       ]
     )
   ];
@@ -27,7 +27,11 @@ export class RecipeService {
     return this.recipes.slice();
   }
 
-  addIngredientToShoppingList(ingredients:Ingredient[]){
+  getRecipe(index: number) {
+    return this.recipes[index];
+  }
+
+  addIngredientToShoppingList(ingredients: Ingredient[]) {
     this.slService.addIngredients(ingredients);
   }
 
